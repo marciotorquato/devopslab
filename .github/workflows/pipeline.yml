@@ -25,7 +25,7 @@ jobs:
         run:  pip install flask
 
       - name: Install Requirements
-        run:  pip install flask pytest flask-wtf
+        run:  pip install flask coverage pytest flask-wtf
 
       - name: Login to Heroku Container registry
         env: 
@@ -33,7 +33,9 @@ jobs:
         run: heroku container:login
 
       - name: Unit Test
-        run: python -m unittest -v test
+        run:
+          coverage run -m pytest test.py
+          coverage xml app.py
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
