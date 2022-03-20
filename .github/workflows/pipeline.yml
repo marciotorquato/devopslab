@@ -33,9 +33,7 @@ jobs:
         run: heroku container:login
 
       - name: Unit Test
-        run:
-          coverage run -m pytest test.py
-          coverage xml app.py
+        run: python -m unittest -v test
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
