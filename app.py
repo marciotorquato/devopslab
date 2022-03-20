@@ -7,7 +7,7 @@ csrf = CSRFProtect(app)
 
 @app.route("/")
 def pagina_inicial():
-    return "Hello World - Marcio Torquato Deploy Heroku"
+    return "Hello World - Marcio Torquato"
 
 if __name__ == '__main__':
     port = os.getenv('PORT')
