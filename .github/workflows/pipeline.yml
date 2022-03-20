@@ -33,7 +33,7 @@ jobs:
         run: heroku container:login
 
       - name: Unit Test
-        run:
+        run: |
           coverage run -m pytest /test.py
           coverage xml /app.py
 
